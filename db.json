@@ -1,26 +1,33 @@
 {
-    "store_info": [
-      {
-        "id": 1,
-        "name": "CozyKnots",
-        "description": "Handmade crochet fashion for all seasons",
-        "phone_number": "0712345678"
-      }
-    ],
-    "products": [
-      {
-        "id": 1,
-        "name": "Crochet Summer Top",
-        "category": "Shirt",
-        "price": 2500,
-        "description": "Lightweight handmade crochet top"
-      },
-      {
-        "id": 2,
-        "name": "Boho Crochet Dress",
-        "category": "Dress",
-        "price": 4500,
-        "description": "Elegant handmade long crochet dress"
-      }
-    ]
-  }
+  "store_info": [
+    {
+      "id": "1",
+      "name": "CozyKnots",
+      "description": "Handmade crochet fashion for all seasons",
+      "phone_number": "0712345678"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Crochet Summer Top",
+      "category": "Shirt",
+      "price": 2500,
+      "description": "Lightweight handmade crochet top"
+    },
+    {
+      "id": "2",
+      "name": "Boho Crochet Dress",
+      "category": "Dress",
+      "price": 4500,
+      "description": "Elegant handmade long crochet dress"
+    },
+    {
+      "id": "04f2",
+      "name": "skimp",
+      "category": "trousers",
+      "price": 4577,
+      "description": "a knee boot high length trousers "
+    }
+  ]
+}

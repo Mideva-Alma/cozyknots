@@ -93,7 +93,7 @@ function EditProduct() {
   }
 
   return (
-    <div style={{ padding: "30px", maxWidth: "600px", margin: "0 auto" }}>
+    <div style={{ padding: "40px 18px", backgroundColor: "#ffe6cc", maxWidth: "600px", margin: "0 auto" }}>
       <h1 style={{ marginBottom: "20px" }}>Edit Product</h1>
 
       <form onSubmit={handleSave} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>

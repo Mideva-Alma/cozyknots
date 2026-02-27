@@ -30,7 +30,8 @@ function AddProduct() {
 
   return (
     <div style={{
-      padding: "30px",
+      padding: "40px 18px",
+      backgroundColor: "#ffe6cc",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
