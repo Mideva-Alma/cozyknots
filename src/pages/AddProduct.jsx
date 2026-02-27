@@ -11,13 +11,6 @@ function AddProduct() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Simple validation
-    if (!name || !category || !price || !description) {
-      alert("Please fill in all fields");
-      return;
-    }
-
     const newProduct = {
       name,
       category,
@@ -28,7 +21,7 @@ function AddProduct() {
     try {
       await axios.post("http://localhost:3001/products", newProduct);
       alert("Product added successfully!");
-      navigate("/products"); // redirect to products page
+      navigate("/products"); 
     } catch (error) {
       console.error("Error adding product:", error);
       alert("Failed to add product");
