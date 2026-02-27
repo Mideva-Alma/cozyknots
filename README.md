@@ -1,16 +1,27 @@
-# React + Vite
+CozyKnots Admin Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React based admin portal for managing products in a crochet store CozyKnots. The application allows an administrator to add edit delete and search crochet products.
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Client side routing using React Router
+Full CRUD functionality
+Dynamic search feature
+Custom hook for fetching product data
+Simulated backend using JSON Server
 
-## React Compiler
+Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React
+Vite
+React Router
+Axios
+JSON Server
 
-## Expanding the ESLint configuration
+Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Run the following commands then you will be good to go:
+
+npm install
+json-server --watch db.json --port 3001
+npm run dev
