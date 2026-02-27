@@ -4,6 +4,14 @@
   padding: 2rem;
   text-align: center;
 }
+/* Make the app container stretch full width and height */
+#root {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .logo {
   height: 6em;

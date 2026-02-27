@@ -18,8 +18,17 @@
     padding: 8px 14px;
     cursor: pointer;
     border-radius: 6px;
+    font-weight: bold;
   }
   
   button:hover {
     background-color: #e66900;
+  }
+  
+  button.delete-btn {
+    background-color: #e66900;
+  }
+  
+  button.delete-btn:hover {
+    background-color: #c45000;
   }

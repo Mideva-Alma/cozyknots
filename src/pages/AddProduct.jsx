@@ -36,9 +36,16 @@ function AddProduct() {
   };
 
   return (
-    <div style={{ padding: "30px" }}>
+    <div style={{
+      padding: "30px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      minHeight: "70vh"
+    }}>
       <h1>Add New Crochet Product</h1>
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", maxWidth: "400px", gap: "15px" }}>
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", maxWidth: "400px", gap: "15px", width: "100%" }}>
         <input
           type="text"
           placeholder="Product Name"
@@ -66,7 +73,22 @@ function AddProduct() {
           onChange={(e) => setDescription(e.target.value)}
           style={{ ...inputStyle, height: "80px" }}
         />
-        <button type="submit">Add Product</button>
+        <button
+          type="submit"
+          style={{
+            padding: "10px",
+            borderRadius: "6px",
+            border: "none",
+            fontSize: "16px",
+            fontWeight: "bold",
+            backgroundColor: "#ff7a00",
+            color: "white",
+            cursor: "pointer",
+            marginTop: "10px"
+          }}
+        >
+          Add Product
+        </button>
       </form>
     </div>
   );
