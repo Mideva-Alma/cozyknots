@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import useProducts from "../hooks/useProducts";
 import axios from "axios";
+import useProducts from "../hooks/useProducts";
 
 const API_URL = "http://localhost:3001/products";
 
 function EditProduct() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { fetchProducts } = useProducts();
 
   const nameInputRef = useRef(null);
 
@@ -20,7 +21,6 @@ function EditProduct() {
     price: "",
     description: "",
   });
-  const { fetchProducts } = useProducts();
 
   useEffect(() => {
     let isMounted = true;
@@ -64,21 +64,39 @@ function EditProduct() {
 
   const handleSave = async (e) => {
     e.preventDefault();
-  
+
+    if (!form.name.trim() || !form.category.trim() || !String(form.price).trim()) {
+      alert("Name, Category, and Price are required.");
+      return;
+    }
+
+    const patchData = {
+      name: form.name.trim(),
+      category: form.category.trim(),
+      price: Number(form.price),
+      description: form.description.trim(),
+    };
+
+    setSaving(true);
     try {
       await axios.patch(`${API_URL}/${id}`, patchData);
-      await fetchProducts();   
+      await fetchProducts();
+      alert("Product updated successfully!");
       navigate("/products");
     } catch (err) {
       console.error("Failed to update product:", err);
+      alert("Failed to update product.");
+    } finally {
+      setSaving(false);
     }
   };
+
   if (loading) {
     return <p style={{ padding: "30px" }}>Loading product...</p>;
   }
 
   return (
-    <div style={{ padding: "40px 18px", backgroundColor: "#ffe6cc", maxWidth: "600px", margin: "0 auto" }}>
+    <div style={{ padding: "30px", maxWidth: "600px", margin: "0 auto" }}>
       <h1 style={{ marginBottom: "20px" }}>Edit Product</h1>
 
       <form onSubmit={handleSave} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>

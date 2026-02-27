@@ -26,8 +26,22 @@
       "id": "04f2",
       "name": "skimp",
       "category": "trousers",
-      "price": 4577,
-      "description": "a knee boot high length trousers "
+      "price": 45770,
+      "description": "a knee boot high length trousers"
+    },
+    {
+      "id": "fb30",
+      "name": "Rhompa",
+      "category": "skort",
+      "price": 1500,
+      "description": "If a shirt and a short had a baby it would be this guy except it keeps alll the chromosomes (XX,XY)"
+    },
+    {
+      "id": "aa3b",
+      "name": "Rhinocerous",
+      "category": "Dolls/Plushies",
+      "price": 3456,
+      "description": "Hand made grey Rhino doll"
     }
   ]
 }
