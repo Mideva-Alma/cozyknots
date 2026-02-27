@@ -1,23 +1,12 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useContext } from "react";
+import { ProductContext } from "../context/ProductContext";
 
 export default function useProducts() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const ctx = useContext(ProductContext);
 
-  // Fetch products from backend
-  useEffect(() => {
-    axios
-      .get("http://localhost:3001/products")
-      .then((res) => {
-        setProducts(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching products:", err);
-        setLoading(false);
-      });
-  }, []);
+  if (!ctx) {
+    throw new Error("useProducts must be used inside a ProductProvider");
+  }
 
-  return { products, setProducts, loading };
+  return ctx;
 }

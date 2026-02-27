@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import useProducts from "../hooks/useProducts";
 import { useNavigate } from "react-router-dom";
 
 function AddProduct() {
@@ -8,23 +9,17 @@ function AddProduct() {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
+  const { fetchProducts } = useProducts();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newProduct = {
-      name,
-      category,
-      price: Number(price),
-      description,
-    };
-
+  
     try {
       await axios.post("http://localhost:3001/products", newProduct);
-      alert("Product added successfully!");
-      navigate("/products"); 
+      await fetchProducts();   
+      navigate("/products");
     } catch (error) {
       console.error("Error adding product:", error);
-      alert("Failed to add product");
     }
   };
 

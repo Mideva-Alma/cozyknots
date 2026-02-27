@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import useProducts from "../hooks/useProducts";
 import axios from "axios";
 
 const API_URL = "http://localhost:3001/products";
@@ -19,6 +20,7 @@ function EditProduct() {
     price: "",
     description: "",
   });
+  const { fetchProducts } = useProducts();
 
   useEffect(() => {
     let isMounted = true;
@@ -62,32 +64,15 @@ function EditProduct() {
 
   const handleSave = async (e) => {
     e.preventDefault();
-
-    if (!form.name.trim() || !form.category.trim() || !String(form.price).trim()) {
-      alert("Name, Category, and Price are required.");
-      return;
-    }
-
-    const patchData = {
-      name: form.name.trim(),
-      category: form.category.trim(),
-      price: Number(form.price),
-      description: form.description.trim(),
-    };
-
-    setSaving(true);
+  
     try {
       await axios.patch(`${API_URL}/${id}`, patchData);
-      alert("Product updated successfully!");
+      await fetchProducts();   
       navigate("/products");
     } catch (err) {
       console.error("Failed to update product:", err);
-      alert("Failed to update product.");
-    } finally {
-      setSaving(false);
     }
   };
-
   if (loading) {
     return <p style={{ padding: "30px" }}>Loading product...</p>;
   }
